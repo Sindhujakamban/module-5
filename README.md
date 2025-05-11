@@ -10,8 +10,27 @@ To write a C Program to find area of rectangle using pointer.
 5.	Stop the program.
 
 ## PROGRAM
+```
+
+#include <stdio.h>
+int main() {
+float length, width, area;
+float *l, *w;
+printf("Enter the length of the rectangle: ");
+scanf("%f", &length);
+printf("Enter the width of the rectangle: ");
+scanf("%f", &width);
+l = &length;
+w = &width;
+area = (*l) * (*w);
+printf("The area of the rectangle is: %.2f\n", area);
+return 0;
+}
+```
 
 ## OUTPUT
+![Screenshot 2025-05-11 200447](https://github.com/user-attachments/assets/ac44f02b-2af4-4f8f-b6a1-6fbd51f48115)
+
 		       	
 
 
@@ -34,8 +53,27 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main() {
+char *str;
+str = (char *)malloc(8 * sizeof(char));
+if (str == NULL) {
+printf("Memory allocation failed.\n");
+return 1;
+}
+strcpy(str, "WELCOME");
+printf("%s\n", str);
+free(str);
+return 0;
+}
+```
 
 ## OUTPUT
+![Screenshot 2025-05-11 200723](https://github.com/user-attachments/assets/71d2ad1c-daf3-49ce-9887-03f5e8207346)
+
 
 
 
@@ -60,9 +98,33 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+struct student {
+char name[50];
+int roll_no;
+float marks;
+};
+int main() {
+struct student stu;
+printf("Enter student's name: ");
+scanf("%s", stu.name);
+printf("Enter student's roll number: ");
+scanf("%d", &stu.roll_no);
+printf("Enter student's marks: ");
+scanf("%f", &stu.marks);
+printf("\nStudent Information:\n");
+printf("Name: %s\n", stu.name);
+printf("Roll Number: %d\n", stu.roll_no);
+printf("Marks: %.2f\n", stu.marks);
+return 0;
+}
+``` 
 
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/d96e68fd-e8b1-4e28-9990-e89c62486014)
+
 
 
 ## RESULT
@@ -87,9 +149,45 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```
+
+#include <stdio.h>
+struct employee {
+char name[50];
+int id;
+float basic_salary;
+float gross_salary;
+};
+int main() {
+struct employee emp[3];
+float allowance = 0.20;
+float deduction = 0.10;
+for (int i = 0; i < 3; i++) {
+printf("Enter details for Employee %d:\n", i + 1);
+printf("Name: ");
+scanf("%s", emp[i].name);
+printf("ID: ");
+scanf("%d", &emp[i].id);
+printf("Basic Salary: ");
+scanf("%f", &emp[i].basic_salary);
+// Calculate gross salary
+emp[i].gross_salary = emp[i].basic_salary + (emp[i].basic_salary * allowance) - (emp
+} // <-- This closing brace was missing
+printf("\nEmployee Details:\n");
+for (int i = 0; i < 3; i++) {
+printf("Name: %s\n", emp[i].name);
+printf("ID: %d\n", emp[i].id);
+printf("Basic Salary: %.2f\n", emp[i].basic_salary);
+printf("Gross Salary: %.2f\n\n", emp[i].gross_salary);
+}
+return 0;
+}
+```
 
 
  ## OUTPUT
+![Screenshot 2025-05-11 201119](https://github.com/user-attachments/assets/38b4d8d8-d786-434d-89c1-6ffcb3f94d34)
+
 
  
 
@@ -134,9 +232,38 @@ Step 7: Output Loop (i = 0 to 1):
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+struct Student {
+char name[50];
+int marks[5];
+float total;
+float average;
+};
+int main() {
+struct Student student;
+int sum = 0;
+printf("Enter student's name: ");
+scanf("%s", student.name);
+printf("Enter marks for 5 subjects:\n");
+for (int i = 0; i < 5; i++) {
+printf("Subject %d: ", i + 1);
+scanf("%d", &student.marks[i]);
+sum += student.marks[i];
+}
+student.total = sum;
+student.average = sum / 5.0;
+printf("\nStudent Name: %s\n", student.name);
+printf("Total Marks: %.2f\n", student.total);
+printf("Average Marks: %.2f\n", student.average);
+return 0;
+}
+```
 
 
 ## OUTPUT
+![Screenshot 2025-05-11 203209](https://github.com/user-attachments/assets/50bee23d-72a1-429f-b6c6-e03a92feb397)
+
 
  
 
